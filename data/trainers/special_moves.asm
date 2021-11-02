@@ -9,9 +9,9 @@ LoneMoves:
 	db 2, THUNDERBOLT
 	db 2, MEGA_DRAIN
 	db 3, TOXIC
-	db 3, PSYWAVE
+	db 3, ICY_WIND
 	db 3, FIRE_BLAST
-	db 4, FISSURE
+	db 4, BOULDERCRASH
 
 ; unique moves for elite 4
 ; all trainers in this class are given this move automatically
@@ -19,7 +19,7 @@ LoneMoves:
 TeamMoves:
 	; trainer, move
 	db LORELEI, BLIZZARD
-	db BRUNO,   FISSURE
+	db BRUNO,   BOULDERCRASH
 	db AGATHA,  TOXIC
 	db LANCE,   BARRIER
 	db -1 ; end

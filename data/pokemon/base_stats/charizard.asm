@@ -15,10 +15,10 @@
 
 	; tm/hm learnset
 	tmhm MEGA_PUNCH,   SWORDS_DANCE, MEGA_KICK,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      \
-	     SEISMIC_TOSS, RAGE,         DRAGON_RAGE,  EARTHQUAKE,   FISSURE,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE,   \
+	     TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   POISON_JAB,   FLAME_WHEEL,      \
+	     SEISMIC_TOSS, THUNDERCLAP,         DRAGON_RAGE,  EARTHQUAKE,   BOULDERCRASH,      \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  NATURALFORCE,      BIDE,         \
+	     FIRE_BLAST,   SWIFT,        QUAD_PUNCH,   REST,         SUBSTITUTE,   \
 	     CUT,          STRENGTH
 	; end
 

@@ -902,7 +902,7 @@ SwitchAndTeleportEffect:
 	cp TELEPORT
 	jr z, .printText
 	ld hl, RanAwayScaredText
-	cp ROAR
+	cp DRAGON_ROAR
 	jr z, .printText
 	ld hl, WasBlownAwayText
 .printText
@@ -1031,13 +1031,13 @@ ChargeMoveEffectText:
 	text_far _ChargeMoveEffectText
 	text_asm
 	ld a, [wChargeMoveNum]
-	cp RAZOR_WIND
+	cp DUST_DEVIL
 	ld hl, MadeWhirlwindText
 	jr z, .gotText
 	cp SOLARBEAM
 	ld hl, TookInSunlightText
 	jr z, .gotText
-	cp SKULL_BASH
+	cp QUAD_PUNCH
 	ld hl, LoweredItsHeadText
 	jr z, .gotText
 	cp SKY_ATTACK

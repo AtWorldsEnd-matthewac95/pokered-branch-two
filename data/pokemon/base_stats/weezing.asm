@@ -10,11 +10,11 @@
 	INCBIN "gfx/pokemon/front/weezing.pic", 0, 1 ; sprite dimensions
 	dw WeezingPicFront, WeezingPicBack
 
-	db TACKLE, SMOG, SLUDGE, NO_MOVE ; level 1 learnset
+	db TACKLE, SHADOW_BALL, SLUDGE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        HYPER_BEAM,   RAGE,         THUNDERBOLT,  THUNDER,      \
+	tmhm TOXIC,        HYPER_BEAM,   THUNDERCLAP,         THUNDERBOLT,  THUNDER,      \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, FIRE_BLAST,   \
 	     REST,         EXPLOSION,    SUBSTITUTE
 	; end

@@ -15,8 +15,8 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
-	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   SOLARBEAM,    DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
+	     HYPER_BEAM,   THUNDERCLAP,         MEGA_DRAIN,   SOLARBEAM,    DIG,          \
+	     MIMIC,        DOUBLE_TEAM,  NATURALFORCE,      BIDE,         QUAD_PUNCH,   \
 	     REST,         SUBSTITUTE,   CUT
 	; end
 

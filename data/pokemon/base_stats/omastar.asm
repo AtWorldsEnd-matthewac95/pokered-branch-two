@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        HORN_DRILL,   BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
+	tmhm TOXIC,        WILL_O_WISP,   BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
 	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     SUBMISSION,   SEISMIC_TOSS, RAGE,         MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SKULL_BASH,   REST,         SUBSTITUTE,   \
+	     POISON_JAB,   SEISMIC_TOSS, THUNDERCLAP,         MIMIC,        DOUBLE_TEAM,  \
+	     NATURALFORCE,      BIDE,         QUAD_PUNCH,   REST,         SUBSTITUTE,   \
 	     SURF
 	; end
 

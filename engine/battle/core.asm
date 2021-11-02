@@ -379,16 +379,16 @@ MainInBattleLoop:
 	cp QUICK_ATTACK
 	jr z, .enemyMovesFirst ; if enemy used Quick Attack and player didn't
 	ld a, [wPlayerSelectedMove]
-	cp COUNTER
-	jr nz, .playerDidNotUseCounter
+	cp a ; short-circuiting behavior since Counter is removed
+	jr z, .playerDidNotUseCounter
 	ld a, [wEnemySelectedMove]
-	cp COUNTER
-	jr z, .compareSpeed ; if both used Counter
-	jr .enemyMovesFirst ; if player used Counter and enemy didn't
+	cp a ; short-circuiting behavior since Counter is removed
+	jr z, .compareSpeed
+	jr .enemyMovesFirst
 .playerDidNotUseCounter
 	ld a, [wEnemySelectedMove]
-	cp COUNTER
-	jr z, .playerMovesFirst ; if enemy used Counter and player didn't
+	cp a ; short-circuiting behavior since Counter is removed
+	jr nz, .playerMovesFirst
 .compareSpeed
 	ld de, wBattleMonSpeed ; player speed value
 	ld hl, wEnemyMonSpeed ; enemy speed value
@@ -455,7 +455,7 @@ MainInBattleLoop:
 	jr c, .AIActionUsedPlayerFirst
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
-	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
+	and a ; was Teleport, Road, or HURRICANE used to escape from battle?
 	ret nz ; if so, return
 	ld a, b
 	and a
@@ -3541,7 +3541,7 @@ CheckPlayerStatusConditions:
 	ld a, [wPlayerBattleStatus2]
 	bit USING_RAGE, a ; is mon using rage?
 	jp z, .checkPlayerStatusConditionsDone ; if we made it this far, mon can move normally this turn
-	ld a, RAGE
+	ld a, THUNDERCLAP
 	ld [wd11e], a
 	call GetMoveName
 	call CopyToStringBuffer
@@ -4667,34 +4667,29 @@ HandleCounterMove:
 	ld de, wPlayerMovePower
 	ld a, [wEnemySelectedMove]
 .next
-	cp COUNTER
-	ret nz ; return if not using Counter
+	cp a
+	ret z ; return since we're not using Counter
 	ld a, $01
-	ld [wMoveMissed], a ; initialize the move missed variable to true (it is set to false below if the move hits)
+	ld [wMoveMissed], a
 	ld a, [hl]
-	cp COUNTER
-	ret z ; miss if the opponent's last selected move is Counter.
+	cp a
+	ret z
 	ld a, [de]
 	and a
-	ret z ; miss if the opponent's last selected move's Base Power is 0.
-; check if the move the target last selected was Normal or Fighting type
+	ret z
 	inc de
 	ld a, [de]
-	and a ; normal type
+	and a
 	jr z, .counterableType
 	cp FIGHTING
 	jr z, .counterableType
-; if the move wasn't Normal or Fighting type, miss
 	xor a
 	ret
 .counterableType
 	ld hl, wDamage
 	ld a, [hli]
 	or [hl]
-	ret z ; If we made it here, Counter still misses if the last move used in battle did no damage to its target.
-	      ; wDamage is shared by both players, so Counter may strike back damage dealt by the Counter user itself
-	      ; if the conditions meet, even though 99% of the times damage will come from the target.
-; if it did damage, double it
+	ret z
 	ld a, [hl]
 	add a
 	ldd [hl], a
@@ -4702,14 +4697,13 @@ HandleCounterMove:
 	adc a
 	ld [hl], a
 	jr nc, .noCarry
-; damage is capped at 0xFFFF
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
 .noCarry
 	xor a
 	ld [wMoveMissed], a
-	call MoveHitTest ; do the normal move hit test in addition to Counter's special rules
+	call MoveHitTest
 	xor a
 	ret
 
@@ -5049,7 +5043,7 @@ HandleBuildingRage:
 	pop hl
 	xor a
 	ldd [hl], a ; null move effect
-	ld a, RAGE
+	ld a, THUNDERCLAP
 	ld [hl], a ; restore the target pokemon's move number to Rage
 	ldh a, [hWhoseTurn]
 	xor $01 ; flip turn back to the way it was
@@ -6043,7 +6037,7 @@ CheckEnemyStatusConditions:
 	ld a, [wEnemyBattleStatus2]
 	bit USING_RAGE, a ; is mon using rage?
 	jp z, .checkEnemyStatusConditionsDone ; if we made it this far, mon can move normally this turn
-	ld a, RAGE
+	ld a, THUNDERCLAP
 	ld [wd11e], a
 	call GetMoveName
 	call CopyToStringBuffer

@@ -16,9 +16,9 @@
 	; tm/hm learnset
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE,   SURF,         \
+	     HYPER_BEAM,   PAY_DAY,      POISON_JAB,   FLAME_WHEEL,      SEISMIC_TOSS, \
+	     THUNDERCLAP,         DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
+	     SWIFT,        QUAD_PUNCH,   REST,         SUBSTITUTE,   SURF,         \
 	     STRENGTH
 	; end
 
